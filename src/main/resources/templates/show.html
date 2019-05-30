@@ -7,15 +7,20 @@
     <th:block th:insert="base :: header"></th:block>
 </head>
 <body>
+
 <div th:replace="base :: nav"></div>
 
 <div class="container">
+    <div sec:authorize="hasAuthority('ADMIN')">
+
+
 
     Title: <span th:text="${course.title}"></span><br/>
     Instructor: <span th:text="${course.instructor}"></span><br/>
     Description: <span th:text="${course.description}"></span><br/>
     Credits: <span th:text="${course.credit}"></span><br/>
     <a th:href="@{/delete/{id}(id=${course.id})}">Delete this course</a>
+</div>
 </div>
 
 <div th:replace="base :: footer"></div>
