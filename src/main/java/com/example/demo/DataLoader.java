@@ -2,10 +2,8 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.lang.reflect.Executable;
 import java.util.Arrays;
 
 @Component
@@ -17,7 +15,7 @@ public class DataLoader implements CommandLineRunner {
   RoleRepository roleRepository;
 
   @Autowired
-  CourseRepository courseRepository;
+  MessageRepository courseRepository;
 
   @Override
   public void run(String... strings) throws Exception{

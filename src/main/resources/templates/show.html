@@ -11,16 +11,32 @@
 <div th:replace="base :: nav"></div>
 
 <div class="container">
+
+    <div sec:authorize="hasAuthority('USER')">
+            Title:<span th:text="${message.title}"></span><br/>
+
+            Content:<span th:text="${message.content}"></span><br/>
+
+            postdate:<span th:text="${message.postDate}"></span><br/>
+
+            postedBy:<span th:text="${message.postedBy}"></span><br/>
+            <span th:if="${user_id == message.user.id}">
+
+            <a th:href="@{/delete/{id}(id=${message.id})}">delete this message</a>
+            </span>
+
+    </div>
     <div sec:authorize="hasAuthority('ADMIN')">
+        Title:<span th:text="${message.title}"></span><br/>
 
+        Content:<span th:text="${message.content}"></span><br/>
 
+        postdate:<span th:text="${message.postDate}"></span><br/>
 
-    Title: <span th:text="${course.title}"></span><br/>
-    Instructor: <span th:text="${course.instructor}"></span><br/>
-    Description: <span th:text="${course.description}"></span><br/>
-    Credits: <span th:text="${course.credit}"></span><br/>
-    <a th:href="@{/delete/{id}(id=${course.id})}">Delete this course</a>
-</div>
+        postedBy:<span th:text="${message.postedBy}"></span><br/>
+            <a th:href="@{/delete/{id}(id=${message.id})}">delete this message</a>
+
+    </div>
 </div>
 
 <div th:replace="base :: footer"></div>
