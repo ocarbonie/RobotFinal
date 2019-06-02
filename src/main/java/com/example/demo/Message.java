@@ -19,9 +19,6 @@ public class Message {
   private String content;
   @NotNull
   private String postDate;
-  @NotNull
-  @Size(min = 3)
-  private String postedBy;
 
   @ManyToOne (fetch = FetchType.EAGER)
   @JoinColumn(name = "user_id")
@@ -35,7 +32,7 @@ public class Message {
     this.title = title;
     this.content = content;
     this.postDate = postDate;
-    this.postedBy = postedBy;
+
   }
 
   public long getId() {
@@ -68,14 +65,6 @@ public class Message {
 
   public void setPostDate(String postDate) {
     this.postDate = postDate;
-  }
-
-  public String getPostedBy() {
-    return postedBy;
-  }
-
-  public void setPostedBy(String postedBy) {
-    this.postedBy = postedBy;
   }
 
   public User getUser() {

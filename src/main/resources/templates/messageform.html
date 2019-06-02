@@ -4,27 +4,43 @@
     <meta charset="UTF-8">
     <title>Add Course</title>
     <th:block th:insert="base :: header"></th:block>
+    <style>
+        body{
+            background-image:url("https://res.cloudinary.com/dlj6qreoq/image/upload/v1559506319/Background-Picture-Html2_vzfvpz.jpg") ;
+        }
+        h2 {
+            font:italic 5vw Baskerville,'fantasy';
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
 <div th:replace="base :: nav"></div>
 <div class="container">
+
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h2>upload message</h2>
+
     <form action="#" method="post" th:action="@{/process}" th:object="${message}">
-        title:<input th:field="*{title}" type="text"/>
+        <label class="mr-sm-2 mb-0">Title </label>
+        <input th:field="*{title}" class="form-control mr-sm-2 mb-2 mb-sm-0" type="text"/>
         <span th:errors="*{title}"
-              th:if="${#fields.hasErrors('title')}"></span><br/><br/>
-        Content:<textarea rows="3" th:field="*{content}"/>
+              th:if="${#fields.hasErrors('title')}"></span>
+        <label class="mr-sm-2 mb-0">Content </label>
+        <textarea rows="3" class="form-control mr-sm-2 mb-2 mb-sm-0" th:field="*{content}"/>
         <span th:errors="*{content}"
-              th:if="${#fields.hasErrors('content')}"></span><br/><br/>
-        postedDate:<input th:field="*{postDate}" type="text"/>
+              th:if="${#fields.hasErrors('content')}"></span>
+        <label class="mr-sm-2 mb-0">postedDate </label>
+        <input th:field="*{postDate}" class="form-control mr-sm-2 mb-2 mb-sm-0" type="text"/>
         <span th:errors="*{postDate}"
-              th:if="${#fields.hasErrors('postDate')}"></span><br/><br/>
-        postedBy:<input th:field="*{postedBy}" type="text"/>
-        <span th:errors="*{postedBy}"
-              th:if="${#fields.hasErrors('postedBy')}"></span><br/><br/>
-        <input type="submit" value="Submit"/>
+              th:if="${#fields.hasErrors('postDate')}"></span>
+        <input type="submit"  value="Post"/>
     </form>
 </div>
-
+    </div>
+</div>
 <div th:replace="base :: footer"></div>
 </body>
 </html>
