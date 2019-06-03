@@ -33,10 +33,7 @@
         <textarea rows="3" class="form-control mr-sm-2 mb-2 mb-sm-0" th:field="*{content}"/>
         <span th:errors="*{content}"
               th:if="${#fields.hasErrors('content')}"></span>
-        <label class="mr-sm-2 mb-0">postedDate </label>
-        <input th:field="*{postDate}" class="form-control mr-sm-2 mb-2 mb-sm-0" type="text"/>
-        <span th:errors="*{postDate}"
-              th:if="${#fields.hasErrors('postDate')}"></span> <br/>
+
         <input type="submit"  value="Post"/>
     </form>
 </div>

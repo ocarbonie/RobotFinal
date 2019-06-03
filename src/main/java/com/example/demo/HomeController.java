@@ -7,6 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Controller
 public class HomeController {
@@ -59,9 +61,11 @@ public class HomeController {
 
   @PostMapping("/process")
   public String processForm(@Valid Message message, BindingResult result){
+
     if(result.hasErrors()){
       return "messageform";
     }
+    message.setPostDate(getCurrentTime());
 
     message.setUser(userService.getUser());
     messageRepository.save(message);
@@ -88,5 +92,16 @@ public class HomeController {
     messageRepository.deleteById(id);
     return "redirect:/";
   }
+  public String getCurrentTime(){
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+    LocalDateTime now = LocalDateTime.now();
+
+    return dtf.format(now);
+
+  }
+
+
 
 }

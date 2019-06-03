@@ -44,7 +44,7 @@
 
         Content:<span th:text="${message.content}"></span><br/>
 
-        postdate:<span th:text="${message.postDate}"></span><br/>
+        postdate:<small id="posted" th:text="${message.postedDate}"></small>
 
         postedBy:<div th:text="${message.user.username}"></div>
             <a th:href="@{/delete/{id}(id=${message.id})}">delete this message</a>

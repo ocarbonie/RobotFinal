@@ -17,7 +17,7 @@ public class Message {
   @NotNull
   @Size(min = 3)
   private String content;
-  @NotNull
+
   private String postDate;
 
   @ManyToOne (fetch = FetchType.EAGER)
