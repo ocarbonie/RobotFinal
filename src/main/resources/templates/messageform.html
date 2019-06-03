@@ -24,6 +24,7 @@
             <h2>upload message</h2>
 
     <form action="#" method="post" th:action="@{/process}" th:object="${message}">
+        <input type="hidden" th:field="*{id}"/>
         <label class="mr-sm-2 mb-0">Title </label>
         <input th:field="*{title}" class="form-control mr-sm-2 mb-2 mb-sm-0" type="text"/>
         <span th:errors="*{title}"
@@ -35,7 +36,7 @@
         <label class="mr-sm-2 mb-0">postedDate </label>
         <input th:field="*{postDate}" class="form-control mr-sm-2 mb-2 mb-sm-0" type="text"/>
         <span th:errors="*{postDate}"
-              th:if="${#fields.hasErrors('postDate')}"></span>
+              th:if="${#fields.hasErrors('postDate')}"></span> <br/>
         <input type="submit"  value="Post"/>
     </form>
 </div>

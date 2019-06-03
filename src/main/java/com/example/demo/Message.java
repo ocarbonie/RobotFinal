@@ -24,6 +24,8 @@ public class Message {
   @JoinColumn(name = "user_id")
   private User user;
 
+
+
   public Message() {
   }
 

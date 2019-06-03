@@ -37,7 +37,7 @@
                 </tr>
                 <tr th:each ="message:${messages}">
                     <td th:text="${message.title}"></td>
-                    <td class="nav-item" sec:authorize="isAuthenticated()">  <span th:text="${#authentication.name}"></span></td>
+                    <td th:text="${message.user.username}"></td>
                     <td th:text="${message.postDate}"></td>
                     <td>
                 <span th:if="${user_id == message.user.id}">
@@ -58,7 +58,7 @@
                     </tr>
                     <tr th:each ="message:${messages}">
                         <td th:text="${message.title}"></td>
-                        <td th:text="${message.postedBy}"></td>
+                        <td th:text="${message.user.username}"></td>
                         <td th:text="${message.postDate}"></td>
                         <td>
                             <a th:href="@{/update/{id}(id=${message.id})}">Update</a>

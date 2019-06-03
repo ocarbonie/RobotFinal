@@ -71,6 +71,9 @@ public class HomeController {
   @RequestMapping("/detail/{id}")
   public String showMessage(@PathVariable("id") long id, Model model){
     model.addAttribute("message", messageRepository.findById(id).get());
+    if(userService.getUser() != null) {
+      model.addAttribute("user_id", userService.getUser().getId());
+    }
     return "show";
   }
 

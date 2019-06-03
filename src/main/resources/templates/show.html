@@ -29,9 +29,10 @@
 
             Title:<span th:text="${message.title}"></span><br/>
 
+
             Content:<span th:text="${message.content}"></span><br/>
 
-        postedBy:  <span class="nav-item" sec:authorize="isAuthenticated()">  <span th:text="${#authentication.name}"></span></span><br/>
+        postedBy: <dvi th:text="${message.user.username}"></dvi><br/>
         postdate:<span th:text="${message.postDate}"></span><br/>
 
         <span th:if="${user_id == message.user.id}">
@@ -45,7 +46,7 @@
 
         postdate:<span th:text="${message.postDate}"></span><br/>
 
-        postedBy:<span th:text="${message.postedBy}"></span><br/>
+        postedBy:<div th:text="${message.user.username}"></div>
             <a th:href="@{/delete/{id}(id=${message.id})}">delete this message</a>
 
     </div>

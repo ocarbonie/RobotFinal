@@ -29,6 +29,7 @@
               th:action="@{/register}"
               th:object="${user}"
               method="post">
+            <input type="hidden" th:field="*{id}"/>
             <label class="mr-sm-2 mb-0">First Name </label>
             <input type="text" id="firstName" class="form-control mr-sm-2 mb-2 mb-sm-0"
                    th:field="*{firstName}"/>
